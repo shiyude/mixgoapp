@@ -1,0 +1,31 @@
+<!-- 收藏列表 -->
+<div class="collect" *ngIf="totalityData">
+  <div class="grid-lis">
+    <div class="list_grid product-grid">
+      <div class="list_div_50" *ngFor="let reccol of totalityData">
+        <button class="delete_btn" ion-button clear color="dark" (click)="delete(reccol)" tappable>
+          <ion-icon name="close-circle"></ion-icon>
+        </button>
+        <div class="list_div_50_box">
+          <div class="list_div_50_box_img" tappable (click)="gotoProductDetails(reccol)">
+            <img class="grid_mainImg" [src]="hostUrl+reccol.logo" />
+            <!-- <div class="label-new" *ngIf="reccol.is_New">NEW</div> -->
+            <div class="label-ar" *ngIf="reccol.is3d==0">AR</div>
+          </div>
+          <div class="list_div_50_box_text">
+            <div class="card-title">{{reccol.goodsName}}</div>
+            <div class="card-brand">
+              <span>{{reccol.brandName}}</span>
+              <span class="card-brand-site">{{reccol.origin}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfloat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="no_more" *ngIf="!totalityData || totalityData.length == 0">
+  {{language.no_more}}
+</div>

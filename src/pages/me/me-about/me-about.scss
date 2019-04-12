@@ -1,0 +1,40 @@
+page-me-about {
+  .scroll-content {
+    background-color: #f0f0f0;
+  }
+
+  .logo {
+    padding: 1rem 1rem 0 1rem;
+
+    .company_logo {
+      width: 100%;
+      padding-bottom: 50%;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      border-radius: 2rem;
+    }
+  }
+
+  .about_box {
+    h2 {
+      line-height: 1.8;
+      font-size: 1.5rem;
+    }
+
+    .about_box_item {
+      min-height: 0;
+
+      .icon {
+        min-height: 0;
+        height: 2rem;
+        font-size: 2rem;
+        line-height: 2rem;
+        color: $blue-color;
+      }
+
+      .label {
+        margin: 0;
+      }
+    }
+  }
+}

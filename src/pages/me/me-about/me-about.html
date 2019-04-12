@@ -1,0 +1,50 @@
+<!--
+  Generated template for the MeAboutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <!-- 关于我们 -->
+  <ion-navbar class="app_nav" color="primary">
+    <ion-title>{{ language.about_us}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card class="about_box">
+    <div class="company_content" *ngIf="companyData">
+      <div class="logo">
+        <div class="company_logo" [style.backgroundImage]="'url('+baseURL+companyData.imgs+')'"></div>
+      </div>
+      <ion-card-content>
+        <h2>{{companyData.description}}</h2>
+      </ion-card-content>
+      <ion-item class="about_box_item">
+        <ion-icon name="person" item-start large></ion-icon>
+        <p>{{companyData.contactName}}</p>
+      </ion-item>
+
+      <ion-item class="about_box_item">
+        <ion-icon name="phone-portrait" item-start large></ion-icon>
+        <p>{{companyData.contactPhone}}</p>
+      </ion-item>
+      <ion-item class="about_box_item">
+        <ion-icon name="mail" item-start large></ion-icon>
+        <p>{{companyData.contactEmail}}</p>
+      </ion-item>
+
+      <ion-item class="about_box_item">
+        <ion-icon name="pin" item-start large></ion-icon>
+        <h3 style="white-space: initial;color: #8e9093;">{{companyData.contactAddr}}</h3>
+      </ion-item>
+    </div>
+    <div padding>
+      <button tappable (click)="goContactUs(companyData.contactPhone)" ion-button color="primary" block>
+        {{ language.contact_us}}
+      </button>
+    </div>
+  </ion-card>
+</ion-content>

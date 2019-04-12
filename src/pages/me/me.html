@@ -1,0 +1,72 @@
+<ion-header>
+  <!-- 导航 -->
+  <ion-navbar class="app_nav" color="primary">
+    <ion-buttons left>
+      <button tappable (click)="goSet()" ion-button icon-only>
+        <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ language.me}}</ion-title>
+    <!-- <ion-buttons end>
+      <button tappable ion-button icon-only (click)="gotoMsg();">
+        <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+  <!-- 头像 -->
+  <ion-toolbar class="me-head-list">
+    <ion-list tappable (click)="enterData($event)">
+      <ion-item>
+        <ion-avatar item-start>
+          <img :src="{{user.userpic}}">
+        </ion-avatar>
+        <h3>{{ language.id }}: {{user.userphone}}</h3>
+        <p>{{ language.nickname }}: {{user.username}}</p>
+        <ion-icon class="me-head-icon" name="arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+
+  <!-- 切换 -->
+  <ion-toolbar class="head-list">
+    <div class="list-btn">
+      <div class="list-btn-box" tappable (click)="goPages(1)">
+        <div class="list-btn-box-icon" style="background-image:url('assets/icon/me/kefu.png')"></div>
+        <p style="color:#f6b37f">{{ language.service}}</p>
+      </div>
+      <div class="list-btn-box" tappable (click)="goPages(2)">
+        <div class="list-btn-box-icon" style="background-image:url('assets/icon/me/bangzhu.png')"></div>
+        <p style="color:#eb6877">{{ language.help}}</p>
+      </div>
+      <div class="list-btn-box" tappable (click)="goPages(3)">
+        <div class="list-btn-box-icon" style="background-image:url('assets/icon/me/shouchang.png')"></div>
+        <p style="color:#c490bf">{{ language.enshrine }}</p>
+      </div>
+      <div class="list-btn-box" tappable (click)="goPages(4)">
+        <div class="list-btn-box-icon" style="background-image:url('assets/icon/me/zuji.png')"></div>
+        <p style="color:#88c673">{{ language.footprint }}</p>
+      </div>
+      <div class="list-btn-box" tappable (click)="goPages(5)">
+        <div class="list-btn-box-icon" style="background-image:url('assets/icon/me/mixgo.png')"></div>
+        <p style="color:#2ac6f7">{{ language.MixGo }}</p>
+      </div>
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="me_content">
+  <!-- <div class="scroll_box"> -->
+    <h1 class="me_content_head">-- {{ language.recommendation }} --</h1>
+    <cargo-list *ngIf="childrenData" [content]="childrenData"></cargo-list>
+    <div *ngIf="DisnetType" class="no_wifi">
+      <div class="wifi_icon">
+        <ion-icon name="wifi"></ion-icon>
+      </div>
+      <p class="wifi_text">{{language.The_network_is_not_working}}</p>
+      <button tappable (click)="refresh()" ion-button round outline>{{language.refresh}}</button>
+    </div>
+  <!-- </div> -->
+</ion-content>

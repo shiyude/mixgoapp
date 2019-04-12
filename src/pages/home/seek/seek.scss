@@ -1,0 +1,26 @@
+page-seek {
+  .scroll-content{
+    background-color: $gray-color;
+  }
+  .searchbar {
+    padding: 0;
+  }
+  .header .searchbar .searchbar-input{
+    padding-top:0;
+    padding-bottom: 0; 
+    background: $seek-color;
+    color: #141414;
+    border-radius: 5rem;
+  }
+  .header .toolbar-ios-primary .searchbar .searchbar-input{
+    border-radius: 5rem;
+    padding-right: 12px !important;
+    background: $seek-color;
+    height: 2.5rem;
+    color: #fff;
+  }
+  .no-data{
+    margin-top: 2rem;
+    text-align: center;
+  }
+}

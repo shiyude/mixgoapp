@@ -1,0 +1,101 @@
+<!--
+  Generated template for the ProductDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar class="app_nav" color="primary">
+
+    <ion-title *ngIf="productItem">{{productItem.goodsName}}</ion-title>
+    <!-- <ion-buttons tappable end (click)="gotoMsg();">
+        <button ion-button icon-only>
+          <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+        </button>
+      </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div *ngIf="productItem">
+    <ion-card class="productHead">
+      <div class="productHead_box">
+        <ion-slides class="slides_box" pager autoplay="3000" loop="true">
+          <ion-slide *ngFor="let bigimage of productItem.imgs">
+            <!-- <img [src]="hostUrl+bigimage"> -->
+            <div tappable class="slide-wrapper">
+              <div class="slide-wrapper-div" [style.backgroundImage]="'url('+hostUrl+bigimage+')'"></div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+        <span class="attr-3dbtn_a" *ngIf="productItem.is3d == 0" (click)="goUnity()" tappable>
+          <img class="attr-3dbtn" src="assets/imgs/show3d.png">
+        </span>
+      </div>
+      <ion-card-content>
+        <ion-card-title>
+          {{productItem.goodsName}}
+        </ion-card-title>
+        <p>
+          <b>{{ language.commodity_number}}：</b>{{productItem.goodsSerial }}</p>
+        <p>
+          <b>{{ language.production_place}}：</b>{{productItem.origin }}</p>
+        <p>
+          <b>{{ language.item_number }}：</b>{{productItem.goodsCode }}</p>
+        <p>
+          <b>{{ language.brand}}：</b>{{productItem.brandName }}</p>
+        <p>
+          <b>{{ language.size }}：</b>{{productItem.goodsSize }}</p>
+        <!-- <p class="urlA" (click)="goToExternal(productItem.website)">
+          <b>{{ language.url}}</b>
+          {{productItem.website }}
+        </p> -->
+      </ion-card-content>
+      <ion-row class="delails_btn_box">
+        <ion-col>
+          <button tappable (click)="addEnshrine()" [ngClass]="{'divActive':isEnshrine}" ion-button icon-start clear
+            small>
+            <ion-icon class="enshrine" name="star"></ion-icon>
+            <div>{{language.enshrine}}</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button tappable (click)="goTobrand(productItem.brandId)" ion-button icon-start clear small>
+            <ion-icon class="brand" name="send"></ion-icon>
+            <div>{{language.details_of_the_brand}}</div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <!-- 详情 -->
+    <ion-toolbar class="detail-tabs">
+      <ion-segment mode="md" [(ngModel)]="categories">
+        <ion-segment-button value="products">
+          {{ language.commodity_parameters}}
+        </ion-segment-button>
+        <ion-segment-button value="parameter">
+          {{language.parameter_specification}}
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+    <div [ngSwitch]="categories" color="primary">
+      <div *ngSwitchCase="'products'">
+        <div class="detail_img">
+          <img *ngFor="let bigimage of productItem.detail" [src]="hostUrl+bigimage">
+        </div>
+      </div>
+      <div *ngSwitchCase="'parameter'">
+        <div class="cards">
+          <ion-grid class="detail-parameter">
+            <ion-row *ngFor="let item of parameterList">
+              <ion-col class="attr-title">{{item.propertyName}}</ion-col>
+              <ion-col class="attr-value">{{item.propertyValue}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

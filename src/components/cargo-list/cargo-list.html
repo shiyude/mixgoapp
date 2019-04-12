@@ -1,0 +1,80 @@
+<!-- Generated template for the CargoListComponent component -->
+<div *ngIf="totalityData">
+  <!-- 双排商品 -->
+  <div class="grid-lis" *ngIf="totalityData.type == false">
+    <div class="list_grid product-grid" *ngIf="sumData ">
+      <div class="list_div_50" *ngFor="let reccol of sumData">
+        <div class="list_div_50_box">
+          <div  class="list_div_50_box_img" tappable  (click)="gotoProductDetails(reccol)">
+            <img  class="grid_mainImg"  [src]="hostUrl+reccol.logo" />
+            <!-- <div class="label-new" *ngIf="reccol.is_New">NEW</div> -->
+				    <div class="label-ar" *ngIf="reccol.is3d == 0">AR</div>
+          </div>
+          <div class="list_div_50_box_text">
+            <div class="card-title">{{reccol.goodsName}}</div>
+            <div class="card-brand">
+              <span>{{reccol.brandName}}</span>
+              <span class="card-brand-site">{{reccol.origin}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfloat"></div>
+    </div>
+    <ion-infinite-scroll  *ngIf="totalityData.data.length > 10"  (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+   <!-- 户型 -->
+   <div class="grid-lis" *ngIf="totalityData.type == 'unit'">
+    <div class="list_grid product-grid" *ngIf="sumData ">
+      <div class="list_div_50" *ngFor="let reccol of sumData">
+        <div class="list_div_50_box">
+          <div  class="list_div_50_box_img" tappable  (click)="gotoUnitDetailsPage(reccol)">
+            <img  class="grid_mainImg"  [src]="hostUrl+reccol.logo" />
+            <!-- <div class="label-new" *ngIf="reccol.is_New">NEW</div> -->
+				    <div class="label-ar" *ngIf="reccol.is3d == 0">AR</div>
+          </div>
+          <div class="list_div_50_box_text">
+            <div class="card-title">{{reccol.houseTypeName }}</div>
+            <div class="card-brand">
+              <span>{{  reccol.city + reccol.district }}</span>
+              <span class="card-brand-site">{{ reccol.developersName}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfloat"></div>
+    </div>
+    <ion-infinite-scroll  *ngIf="totalityData.data.length > 10"  (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <div class="no_more" *ngIf="(totalityData.type == false || totalityData.type == 'unit') && totalityData.data.length == 0">
+    {{language.no_more}}
+  </div>
+  
+  <!-- 单排商品 -->
+  <div class="OneGrid" *ngIf="totalityData.type == true">
+    <div class="OneGrid-conter">
+      <div tappable  (click)="gotoProductDetails(reccol)" class="OneGrid-conter-box" *ngFor="let reccol of totalityData.data">
+        <div class="OneGrid-conter-box_img">
+          <img class="grid_mainImg" [src]="hostUrl+reccol.logo" />
+          <!-- <div class="label-new" *ngIf="reccol.is_New">NEW</div> -->
+				  <div class="label-ar" *ngIf="reccol.is3d == 0">AR</div>
+        </div>
+        <div class="OneGrid-conter-box_text">
+          <div class="card-title">{{reccol.goodsName}}</div>
+          <div class="card-brand">
+            <span>{{reccol.brandName}}</span>
+            <span class="card-brand-site">{{reccol.origin}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="OneGrid-hide"></div>
+  </div>
+</div>
+

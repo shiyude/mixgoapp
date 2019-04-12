@@ -1,0 +1,28 @@
+page-meAccount {
+  .head_nav{
+    height: 44px;
+  }
+  .item-note{
+    float: right;
+    color: #666;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .item-block{
+    padding-left: 0;
+    .item-inner{
+      padding-left: 15px;
+      font-size: 1.4rem;
+    }
+  }
+  .item-md{
+    .icon-md{
+      display: none;
+    }
+  }
+  .ion-ios-arrow-forward:before{
+    display: none;
+  }
+}

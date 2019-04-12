@@ -1,0 +1,51 @@
+<!--
+  Generated template for the MeEnshrinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="enshrine">
+
+  <ion-navbar class="app_nav" color="primary">
+    <ion-title>{{ language.collection }}</ion-title>
+  </ion-navbar>
+  <ion-toolbar class="enshrine-tabs">
+    <ion-segment mode="md" [(ngModel)]="filtrate">
+      <ion-segment-button value="wish">
+        {{ language.wish_list }}
+      </ion-segment-button>
+      <ion-segment-button value="shop">
+        {{ language.shop_to_collect }}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div [ngSwitch]="filtrate" color="primary">
+    <!-- 收藏商品 -->
+    <div *ngSwitchCase="'wish'">
+      <collect-list [content]="enshrine"></collect-list>
+    </div>
+    <!-- 收藏店铺 -->
+    <div class="stor_enshrine" *ngSwitchCase="'shop'">
+      <div *ngIf="StoreDate">
+        <ion-card *ngFor="let itme of StoreDate">
+          <button class="delete_btn" ion-button clear color="dark" tappable (click)="delete(itme)">
+            <ion-icon name="close-circle"></ion-icon>
+          </button>
+          <div class="shop_background" tappable (click)="gotoStoresDetail(itme);"  [style.backgroundImage]="'url('+hostUrl+itme.imgs+')'"></div>
+          <div class="card-subtitle">
+            <img src='assets/icon/dizhi.png' />
+            <div>{{itme.contactAddr}}</div>
+          </div>
+        </ion-card>
+      </div>
+      <div class="no_more" *ngIf="!StoreDate || StoreDate.length == 0">
+        {{language.no_more}}
+      </div>
+    </div>
+  </div>
+
+</ion-content>

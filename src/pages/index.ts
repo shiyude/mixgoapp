@@ -1,0 +1,40 @@
+export const FirstRunPage = 'ClassifyPage'; // 默认打开页面
+
+export const MainPage = 'TabsPage'; 
+
+export const Tab1Root = 'HomePage';
+export const Tab2Root = 'ClassifyPage';
+export const Tab3Root = 'ArPage';
+export const Tab4Root = 'FindPage';
+export const Tab5Root = 'MePage';
+
+export const LoginPage = 'LoginPage' // 登录
+export const MeSetPage = 'MeSetPage' // 设置
+export const MeAccountPage = 'MeAccountPage' // 账户
+export const FindDetailsPage = 'FindDetailsPage'// 发现详情页
+export const ProductDetailPage = 'ProductDetailPage'// 商品详情页
+export const ProductExternalUrl = 'ProductExternalUrl'// 外部链接
+export const ShopDetailsPage = 'ShopDetailsPage'// 门店详情 
+export const ShopListPage = 'ShopListPage'// 门店列表 
+export const GoodsListPage = 'GoodsListPage'// 商品列表 
+export const MatchListPage = 'MatchListPage'// 全景列表  
+export const MatchDetailsPage = 'MatchDetailsPage'// 全景详情 
+export const SelectListPage = 'SelectListPage'// 分类列表  
+export const BrandListPage = 'BrandListPage'// 品牌列表 
+export const MeAboutPage = 'MeAboutPage'// 关于我们 
+export const MeHelpPage = 'MeHelpPage'// 帮助 
+export const MeEnshrinePage = 'MeEnshrinePage'// 收藏 
+export const MeTrackPage = 'MeTrackPage'// 足迹 
+export const MeServicePage = 'MeServicePage'// 客服  
+export const RegisterPage = 'RegisterPage'// 注册  
+export const MeSharePage = 'MeSharePage'// 分享 
+export const SeekPage = 'SeekPage'// 搜索 
+export const DisnetPage = 'DisnetPage'// 断网 
+export const UnitListPage = 'UnitListPage'// 户型列表
+export const PopSelectPage = 'PopSelectPage'// 选择弹窗页面
+export const PanoDetailPage = 'PanoDetailPage'// 全景图外部链接
+export const FfepListPage = 'FfepListPage' // 名家居
+export const RelateGoodsPage='RelateGoodsPage'//门店和品牌关联的商品 
+export const UnitDetailsPage='UnitDetailsPage'//户型详情页 
+export const MarkShopPage='MarkShopPage'// 主标门店列表
+export const PrivacyPage = 'PrivacyPage'//隐私政策

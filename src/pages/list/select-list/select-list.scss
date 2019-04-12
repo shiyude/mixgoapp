@@ -1,0 +1,44 @@
+page-select-list {
+  .classify::after{
+    height: 0;
+  }
+  .classigy-nav{
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .scroll-content{
+    background: $gray-color;
+
+  }
+  .site_select{
+    position: relative;
+    .site_select_option{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      opacity: 0;
+    }
+    .site_select_label{
+      color: #fff;
+    }
+  }
+  .category-tabs{
+    padding: 0;
+    min-height: 0;
+    .toolbar-background{
+      height: 0;
+    }
+    .segment-button{
+      max-width: none;
+      position: relative;
+      .options-img{
+        position: absolute;
+        width: 2rem;;
+        height: 2rem;
+        top: 50%;
+        margin-top: -1.2rem;
+      }
+    }
+  }
+}

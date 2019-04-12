@@ -1,0 +1,57 @@
+<!--
+  Generated template for the MeAccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar  class="app_nav" class="head_nav" color="primary">
+    <ion-title>{{language.account}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-item-divider color="light">{{language.personal_data}}</ion-item-divider>
+  <ion-list class="personal">
+    <button class="file_box" tappable (click)="setAvatar()" ion-item height="20px">
+      <span class="item-note-text">{{language.head_portrait}}</span>
+      <ion-avatar item-end>
+        <img src="{{hostUrl+user.pic}}" class="avater">
+      </ion-avatar>
+      <ion-icon name="ios-arrow-forward" item-end *ngIf="!showForward"></ion-icon>
+    </button>
+    <button ion-item tappable (click)="gotoName()">
+      <span>{{language.nickname}}</span>
+      <span class="item-note">{{user.name}}</span>
+      <ion-icon name="ios-arrow-forward" item-end *ngIf="!showForward"></ion-icon>
+    </button>
+    <button ion-item tappable (click)="gotoSignature()" *ngIf="!showTel">
+      <span>{{language.personalized_signature}}</span>
+      <span class="item-note">{{user.desc}}</span>
+      <ion-icon name="ios-arrow-forward" item-end *ngIf="!showForward"></ion-icon>
+    </button>
+    <button ion-item tappable (click)="gotoSex()">
+      <span>{{language.sex}}</span>
+      <span class="item-note">{{user.sex}}</span>
+      <ion-icon name="ios-arrow-forward" item-end *ngIf="!showForward"></ion-icon>
+    </button>
+    <button ion-item *ngIf="!showEmail">
+      <ion-label  style="color: #0e0303">{{language.birthday}}</ion-label>
+      <ion-datetime style="color: #666" cancelText="{{language.cancel}}" doneText="{{language.confirm}}" displayFormat="YYYY-MM-DD" [(ngModel)]="user.birthday"
+        (ngModelChange)="changeDate($event)"></ion-datetime>
+    </button>
+    <button ion-item tappable (click)="gotoProfession()">
+      <span>{{language.profession}}</span>
+      <span class="item-note">{{user.profession}}</span>
+      <ion-icon name="ios-arrow-forward" item-end *ngIf="!showForward"></ion-icon>
+    </button>
+    <button ion-item tappable (click)="gotoShipping_Address()">
+      <span>{{language.shipping_address}}</span>
+      <span class="item-note">{{user.shipping_address}}</span>
+      <ion-icon name="ios-arrow-forward" item-end *ngIf="!showForward"></ion-icon>
+    </button>
+  </ion-list>
+</ion-content>

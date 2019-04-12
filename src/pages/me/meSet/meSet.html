@@ -1,0 +1,57 @@
+<!--
+  Generated template for the MeSetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar class="meSet_nav app_nav" color="primary">
+    <ion-title>{{language.set}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="personal">
+    <!-- <button ion-item tappable (click)="gotoShare()">
+      <span>{{ language.recommend_to_friends }}</span>
+      <span class="item-note"></span>
+    </button> -->
+
+    <button ion-item tappable (click)="gotoMeAccount()">
+      <span>{{ language.personal_setting}}</span>
+    </button>
+
+    <button ion-item tappable (click)="gotoPassword(3)" item-end *ngIf="!showForward">
+      <span>{{ language.account_security}}</span>
+      <span class="item-note"></span>
+    </button>
+    <!-- 设置语言 -->
+    <button ion-item tappable (click)="gotoLanguage()" item-end *ngIf="!showForward">
+      <span>{{ language.set_language}}</span>
+      <span class="item-note"></span>
+    </button>
+
+    <button ion-item tappable (click)="gotoVersions()">
+      <span>{{ language.current_version }}</span>
+      <span class="item-note">
+
+      </span>
+    </button>
+
+    <button ion-item tappable (click)="showConfirm()">
+      <span>{{ language.clear_cache}}</span>
+      <span name="ios-arrow-forward" class="item-note"></span>
+    </button>
+
+    <button ion-item tappable (click)="gotoAbout()">
+      <span>{{ language.about_us}}</span>
+      <span class="item-note"></span>
+    </button>
+  </ion-list>
+  <div padding>
+    <button *ngIf="isLogin"  ion-button block tappable (click)="gotoLogin()">{{ language.logout }}</button>
+  </div>
+</ion-content>

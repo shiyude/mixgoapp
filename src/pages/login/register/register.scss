@@ -1,0 +1,49 @@
+page-register {
+  .login_head{
+    text-align: center;
+    margin: 2rem;
+    img{
+      width: 6rem;
+    }
+  }
+  .login_input{
+    border-bottom: 1px solid #ddd;
+    padding-left: 3rem;
+    position: relative;
+    .text-input{
+      margin: 20px 8px 20px 0;
+    }
+    .login_input_icon{
+      position: absolute;
+      top: 50%;
+      height: 2rem;
+      line-height: 2rem;
+      margin-top: -1rem;
+      left: 1rem;
+      color: $blue-color;
+      font-size: 1.5em;
+    }
+  }
+  .login_input.login_input_verify{
+    .login_input_verify_input{
+      width: 70%;
+    }
+    .login_input_verify_btn{
+      right: 0;
+      position: absolute;
+      width: 30%;
+      top: .8rem;
+      bottom: .8rem;
+      background-color: $blue-color;
+      color: #fff;
+      border-radius: 3px;
+      border: 0;
+    }
+  }
+  .reguster_box{
+    margin-top: 2rem;
+  }
+  .header .button-inner .icon{
+    font-size: 3rem;
+  }
+}

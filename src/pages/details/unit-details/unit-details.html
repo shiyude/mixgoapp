@@ -1,0 +1,71 @@
+<!--
+  Generated template for the UnitDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar class="app_nav nav_top" color="primary">
+    <ion-title *ngIf="info">{{info.houseTypeName}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <div *ngIf="detailsData">
+    <ion-card class="productHead">
+      <div class="productHead_box">
+        <ion-slides class="slides_box" pager autoplay="3000" loop="true">
+          <ion-slide *ngFor="let bigimage of detailsData.imgs">
+        
+            <div tappable class="slide-wrapper">
+              <div class="slide-wrapper-div" [style.backgroundImage]="'url('+hostUrl+bigimage+')'"></div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+        <a [href]="unitySrc" class="attr-3dbtn_a" *ngIf="detailsData.is3d == 0">
+          <img class="attr-3dbtn" src="assets/imgs/show3d.png">
+        </a>
+      </div>
+      <ion-card-content>
+        <ion-card-title>
+          {{detailsData.houseTypeName}}
+        </ion-card-title>
+        <p>
+          <b>{{ language.site}}：</b>{{detailsData.province + detailsData.city + detailsData.district }}</p>
+        <p>
+          <b>{{ language.house_type}}：</b>{{detailsData.roomName }}</p>
+        <p>
+          <b>{{ language.developers }}：</b>{{detailsData.developersName }}</p>
+        <p>
+          <b>{{ language.style}}：</b>{{detailsData.styleName }}</p>
+        <!-- <p>
+          <b>{{ language.size }}：</b>{{detailsData.goodsSize }}</p>
+        <p class="urlA" (click)="goToExternal(detailsData.website)">
+          <b>{{ language.url}}</b>
+          {{detailsData.website }}
+        </p> -->
+      </ion-card-content>
+      <!-- <ion-row class="delails_btn_box">
+        <ion-col>
+          <button tappable (click)="addEnshrine()" [ngClass]="{'divActive':isEnshrine}" ion-button icon-start clear
+            small>
+            <ion-icon class="enshrine" name="star"></ion-icon>
+            <div>{{language.enshrine}}</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button tappable (click)="goTobrand(productItem.brandId)" ion-button icon-start clear small>
+            <ion-icon class="brand" name="send"></ion-icon>
+            <div>{{language.details_of_the_brand}}</div>
+          </button>
+        </ion-col>
+      </ion-row> -->
+    </ion-card>
+    <div class="details_body">
+      <img *ngFor="let imgs of detailsData.detail" [src]="hostUrl+imgs" alt="">
+    </div>
+  </div>
+</ion-content>

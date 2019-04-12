@@ -1,0 +1,39 @@
+page-shop-list {
+  ion-card {
+    position: relative;
+  }
+  .shop_background{
+    padding-bottom:52%;
+    width:100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 70%;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    width:60%;
+    left: 20%;
+    padding: .5rem;
+    border-radius: 2rem;
+    padding-left: 3rem;
+    text-align: center;
+  
+    img{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 1rem;
+      vertical-align: middle;
+    }
+    div{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

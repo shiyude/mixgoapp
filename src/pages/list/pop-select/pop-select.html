@@ -1,0 +1,98 @@
+<!--
+  Generated template for the PopSelectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar class="app_nav" color="primary">
+    <ion-buttons left>
+      <button tappable (click)="dismiss()" ion-button icon-only>
+        <ion-icon class="head_icon nva_close" name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{language.screen}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- 国家 -->
+  <!-- <div class="select_div" *ngIf="parentData">
+    <h1 class="select_div_box_head">-- {{parentData.countryData.title}} --</h1>
+    <div class="select_div_box clearfix">
+      <ion-item *ngFor="let itme of parentData.countryData.data; let i=index" class="item_checkbox">
+        <ion-label>{{itme.name}}</ion-label>
+        <ion-checkbox [(disabled)]="itme.isTrue" [(ngModel)]="itme.isCheck" (ionChange)="updateCucumber(itme.name,'countryData')"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div> -->
+  <!-- 产地 -->
+  <div class="select_div" *ngIf="parentData">
+    <h1 class="select_div_box_head">-- {{parentData.originData.title}} --</h1>
+    <div class="select_div_box clearfix">
+      <ion-item *ngFor="let itme of parentData.originData.data; let i=index" class="item_checkbox">
+        <ion-label>{{itme.name}}</ion-label>
+        <ion-checkbox [(disabled)]="itme.isTrue" [(ngModel)]="itme.isCheck" (ionChange)="updateCucumber(itme.name,'originData')"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+  <!-- 风格 -->
+  <!-- <div class="select_div" *ngIf="parentData">
+    <h1 class="select_div_box_head">-- {{parentData.stylelist.title}} --</h1>
+    <div class="select_div_box clearfix">
+      <ion-item *ngFor="let itme of parentData.stylelist.data; let i=index" class="item_checkbox">
+        <ion-label>{{itme.title}}</ion-label>
+        <ion-checkbox [(disabled)]="itme.isTrue" [(ngModel)]="itme.isCheck" (ionChange)="updateCucumber(itme.id,'stylelist')"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div> -->
+  <!-- 分类 -->
+  <div class="select_div" *ngIf="parentData.categoryData">
+    <h1 class="select_div_box_head">-- {{parentData.categoryData.title}} --</h1>
+    <div class="select_div_box clearfix">
+      <ion-item *ngFor="let itme of parentData.categoryData.data; let i=index" class="item_checkbox">
+        <ion-label>{{itme.name}}</ion-label>
+        <ion-checkbox [(disabled)]="itme.isTrue" [(ngModel)]="itme.isCheck" (ionChange)="updateCucumber(itme.id,'categoryData')"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+  <!-- 杂项 -->
+  <div *ngIf="parentData.filterData">
+    <div *ngFor="let itme of parentData.filterData; let i=index" class="select_div">
+      <h1 class="select_div_box_head">-- {{itme.title}} --</h1>
+      <div class="select_div_box clearfix">
+        <ion-item *ngFor="let list of itme.params" class="item_checkbox">
+          <ion-label>{{list.name}}</ion-label>
+          <ion-checkbox [(disabled)]="list.isTrue" [(ngModel)]="list.isCheck" (ionChange)="filterUp(list.name,'filterData', i)"></ion-checkbox>
+        </ion-item>
+      </div>
+    </div>
+  </div>
+  <!-- 品牌 -->
+  <div class="select_div" *ngIf="parentData">
+    <h1 class="select_div_box_head">-- {{parentData.brandlist.title}} --</h1>
+    <div class="select_div_box clearfix">
+      <ion-item *ngFor="let itme of parentData.brandlist.data; let i=index" class="item_checkbox">
+        <ion-label>{{itme.name}}</ion-label>
+        <ion-checkbox [(disabled)]="itme.isTrue" [(ngModel)]="itme.isCheck" (ionChange)="updateCucumber(itme.id,'brandlist')"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="footer_box">
+    <ion-buttons left class="footer_box_btn">
+      <button tappable ion-button (click)="resetBtn()">
+        {{language.reset}}
+      </button>
+    </ion-buttons>
+    <ion-buttons class="footer_box_btn btn_end" end>
+      <button tappable ion-button  (click)="ensureBtn()">
+        {{language.done}}
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,95 @@
+page-find {
+  .category-tabs {
+    padding: 0;
+    min-height: 0;
+    background-color: #fff;
+
+    .toolbar-background {
+      height: 0;
+    }
+
+    .segment-button {
+      max-width: none;
+      color: $bg-color-text;
+    }
+    .segment-button.segment-activated{
+      color: $blue-color;
+      border-color: $blue-color;
+    }
+  }
+
+  .scroll-content {
+    background-color: $gray-color;
+    overflow: hidden;
+  }
+
+  .scroll_box {
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+  }
+
+  .scroll_box_absoulte {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+  }
+
+  .scroll_box_relative {
+    height: 100%;
+  }
+
+  .card {
+    border-radius: 1rem;
+
+    .find_background {
+      padding-bottom: 60%;
+      width: 100%;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    .card-content {
+      padding-bottom: 0;
+
+      .card-title {
+        font-size: 1.2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        padding: 0;
+      }
+
+      p {
+        color: #999;
+      }
+    }
+  }
+
+  .no_wifi {
+    text-align: center;
+
+    .wifi_icon {
+      font-size: 5rem;
+      color: #999;
+      margin-top: 2rem;
+    }
+
+    .wifi_text {
+      color: #999;
+    }
+
+    button {
+      height: 2rem;
+      padding: 0 3rem;
+    }
+  }
+
+  .no-data {
+    padding-top: 100px;
+    text-align: center;
+  }
+}

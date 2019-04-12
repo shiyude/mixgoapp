@@ -1,0 +1,128 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar class="app_nav" color="primary">
+
+    <ion-buttons left class="site_select">
+      <ion-label class="site_select_label">
+        <ion-icon class="site_select_label_icon" name="globe"></ion-icon>
+        <span>{{country}}</span>
+      </ion-label>
+      <div *ngIf="countrys&&countrys.length>1">
+        <ion-select class="site_select_option" [(ngModel)]="country" interface="popover" (ionChange)='selectCountry(country)'>
+          <ion-option *ngFor="let item of countrys" :value="{{item.countryName}}">{{item.countryName}}</ion-option>
+        </ion-select>
+      </div>
+    </ion-buttons>
+    <ion-title>
+      <div tappable (click)="goToSeek()" class="seek">
+        <ion-icon class="seek_icon" name="search"></ion-icon>{{ language.search}}
+      </div>
+    </ion-title>
+    <ion-buttons end>
+      <button tappable ion-button icon-only (click)="gotoqr();" style="margin-right:10px">
+        <ion-icon ios="ios-qr-scanner" md="md-qr-scanner"></ion-icon>
+      </button>
+      <!-- <button tappable ion-button icon-only (click)="gotoMsg();">
+        <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+      </button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- <div class="scroll_box"> -->
+  <!-- 轮播 -->
+  <div class="home-slider" *ngIf="Banners">
+    <ion-slides #slides pager *ngIf="Banners">
+      <ion-slide *ngFor="let banner of Banners;let i=index">
+        <div tappable (click)="gotoBanner(banner)" class="slide-wrapper">
+          <!-- <img [src]="hostUrl+banner.logo"> -->
+          <div class="slide-wrapper-div" [style.backgroundImage]="'url('+hostUrl+banner.logo+')'"></div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <!-- 分类 -->
+  <div *ngIf="MainMarks" class="home-classify">
+    <ion-grid class="list-btn">
+      <ion-row>
+        <ion-col col='5' *ngFor="let mark of MainMarks">
+          <!-- <img tappable (click)='gotoMainMark(mark);' [src]="hostUrl+mark.logo"> -->
+          <div class="mark_img" (click)='gotoMainMark(mark);' [style.backgroundImage]="'url('+hostUrl+mark.logo+')'" tappable></div>
+          <p>{{mark.name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!-- 门店 -->
+  <div *ngIf="HotShops" class="home-shophot home-list">
+    <!-- 抬头 -->
+    <div class="home-box-head">
+      <h1>{{language.brandCommand}}</h1>
+      <div tappable class="home-box-all" (click)="goList('ShopListPage')">
+        <p class="type-title">{{language.see_all}}</p>
+        <ion-icon class="home-box-all-icon" name="ios-arrow-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="crosswise">
+      <div class="crosswise-list">
+        <div *ngFor="let hotshop of HotShops" class="crosswise-list-box home-shophot-box">
+          <div class="hotshop_background" (click)="gotoStoresDetail(hotshop);" tappable [style.backgroundImage]="'url('+hostUrl+hotshop.imgs+')'" ></div>
+          <div class="home-shophot-box-text">
+            <img class="home-shophot-box-text_img" src="assets/icon/dizhi.png" alt=""> {{hotshop.storeName}}
+          </div>
+        </div>
+      </div>
+      <div class="crosswise-hide"></div>
+    </div>
+  </div>
+  <!-- 新选 -->
+  <div *ngIf="NewStuffs" class="home-newlist home-list">
+    <div class="home-box-head">
+      <h1>{{language.today_the_new_choice}}</h1>
+      <div tappable class="home-box-all" (click)="goList('GoodsListPage','newly')">
+        <p class="type-title">{{language.see_all}}</p>
+        <ion-icon class="home-box-all-icon" name="ios-arrow-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <cargo-list class="crosswise-list-box" [content]="NewStuffs"></cargo-list>
+  </div>
+  <!-- 特卖好物 -->
+  <div *ngIf="hotlist" class="home-hotlist home-list">
+    <div class="home-box-head">
+      <h1>{{language.good_sale_item}}</h1>
+      <div class="home-box-all" tappable (click)="goList('GoodsListPage','tds')">
+        <p class="type-title">{{language.see_all}}</p>
+        <ion-icon class="home-box-all-icon" name="ios-arrow-forward-outline"></ion-icon>
+      </div>
+    </div>
+    <cargo-list [content]="hotlist"></cargo-list>
+  </div>
+  <!-- 热门分类 -->
+  <div *ngIf="Recgrp" class="home-recGroups">
+    <div class="crosswise">
+      <div class="crosswise-list">
+        <div *ngFor="let item of Recgrp;let i=index" class="crosswise-list-box home-recGroups-box">
+          <span tappable (click)="cutSpan(i,item.id)" [ngClass]="{'active':label==i}">{{item.groupName}}</span>
+        </div>
+      </div>
+      <div class="crosswise-hide"></div>
+    </div>
+    <cargo-list #sonFn [content]="RecgrpData"></cargo-list>
+  </div>
+  <!-- 如果断网 -->
+  <div class="no_wifi" *ngIf="DisnetType">
+    <div class="wifi_icon">
+      <ion-icon name="wifi"></ion-icon>
+    </div>
+    <p class="wifi_text">{{language.The_network_is_not_working}}</p>
+    <button tappable (click)="refresh()" ion-button round outline>{{language.refresh}}</button>
+  </div>
+  <!-- </div> -->
+</ion-content>

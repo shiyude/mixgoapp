@@ -1,0 +1,112 @@
+page-me-enshrine {
+  .enshrine::after {
+    height: 0;
+  }
+
+  .scroll-content {
+    background: $gray-color;
+
+  }
+
+  .site_select {
+    position: relative;
+
+    .site_select_option {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      opacity: 0;
+    }
+
+    .site_select_label {
+      color: #fff;
+    }
+  }
+
+  .enshrine-tabs {
+    padding: 0;
+    min-height: 0;
+
+    .toolbar-background {
+      height: 0;
+    }
+
+    .segment-button {
+      max-width: none;
+      position: relative;
+
+      .options-img {
+        position: absolute;
+        width: 2rem;
+        ;
+        height: 2rem;
+        top: 50%;
+        margin-top: -1.2rem;
+      }
+    }
+  }
+
+
+  .stor_enshrine {
+    ion-card {
+      position: relative;
+    }
+
+    .shop_background {
+      padding-bottom: 52%;
+      width: 100%;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 70%;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      left: 20%;
+      right: 20%;
+      padding: .5rem;
+      border-radius: 2rem;
+      padding-left: 3rem;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+
+      img {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 1rem;
+        vertical-align: middle;
+      }
+      div{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    .delete_btn {
+      position: absolute;
+      top: 5px;
+      right: 0;
+      height: auto;
+      padding: .5rem;
+      z-index: 100;
+      color: red;
+    }
+
+    .no_more {
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
+}

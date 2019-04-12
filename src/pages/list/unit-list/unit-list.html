@@ -1,0 +1,109 @@
+<!--
+  Generated template for the UnitListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="nav_zindex">
+
+  <ion-navbar class="app_nav nav_top" color="primary">
+    <ion-title>{{language.house_type}}</ion-title>
+  </ion-navbar>
+
+  <!-- <ion-toolbar class="unit-body-cut">
+    <ion-segment mode="md" class="unit-body-cut-head" >
+      <ion-segment-button value="area"  (ionSelect)="segmentChanged('area')">
+        {{language.district}}
+      </ion-segment-button>
+      <ion-segment-button value="houseType"  (ionSelect)="segmentChanged('houseType')">
+        {{language.house_type}}
+      </ion-segment-button>
+      <ion-segment-button value="acreage"  (ionSelect)="segmentChanged('acreage')">
+        {{language.proportion}}
+      </ion-segment-button>
+      <ion-segment-button value="developers"  (ionSelect)="segmentChanged('developers')">
+        {{language.developers}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <div class="pop_zindex">
+    <div class="unit_active_top">
+      <div [ngClass]="{'cut-active':cutOpen,'unit-body-cut-body':true}">
+        <div class="area" [hidden]="relationship != 'area'">
+          <div class="area_left_region">
+            <ul class="ion_list_ul">
+              <li *ngFor="let item of filterData.district;let i = index">
+                <div [ngClass]="{'divActive':i== leb1}" tappable (click)="acquireCode(item.code,i,'area')">
+                  <span>{{item.name}}</span>
+                  <ion-icon class="ion_conter" name="checkmark-circle"></ion-icon>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="area_right_street">
+            <ul class="ion_list_ul">
+              <li *ngFor="let item of streetData;let i = index">
+                <div [ngClass]="{'divActive':i== leb2}" tappable (click)="acquireCode(item.code,i,'street')">
+                  <span>{{item.name}}</span>
+                  <ion-icon class="ion_conter" name="checkmark-circle"></ion-icon>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="houseType" [hidden]="relationship !='houseType'">
+
+          <ul class="ion_list_ul">
+            <li *ngFor="let item of filterData.unit;let i = index">
+              <div [ngClass]="{'divActive':i== leb3}" tappable (click)="acquireCode(item.id,i,'houseType')">
+                <span>{{item.name}}</span>
+                <ion-icon class="ion_conter" name="checkmark-circle"></ion-icon>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="acreage" [hidden]="relationship != 'acreage'">
+          <ul class="ion_list_ul">
+            <li *ngFor="let item of filterData.area;let i = index">
+              <div [ngClass]="{'divActive':i== leb4}" tappable (click)="acquireCode(item.id,i,'acreage')">
+                <span>{{item.name}}</span>
+                <ion-icon class="ion_conter" name="checkmark-circle"></ion-icon>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="developers" [hidden]="relationship !='developers'">
+          <ul class="ion_list_ul">
+            <li *ngFor="let item of filterData.vendors;let i = index">
+              <div [ngClass]="{'divActive':i== leb5}" tappable (click)="acquireCode(item.id,i,'developers')">
+                <span>{{item.name}}</span>
+                <ion-icon class="ion_conter" name="checkmark-circle"></ion-icon>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="unit-body-cut-btn">
+          <button tappable (click)='doReset()' ion-button color="light">{{language.reset}}</button>
+          <button class="cut-btn-true" tappable (click)="doSelect()" ion-button>{{language.confirm}}</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</ion-header>
+
+<!-- 遮罩 -->
+<div tappable (click)="shadeClick()" [ngClass]="{'shade-active':cutOpen,'unit-body-shade':true}"></div>
+
+
+<ion-content>
+  <cargo-list #sonListFn [content]="unitData"></cargo-list>
+</ion-content>

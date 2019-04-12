@@ -1,0 +1,16 @@
+page-me-set {
+  .meSet_nav{
+    height: 44px;;
+  }
+  .item-block{
+    padding-left: 0;
+    ion-label{
+      padding-left: 2rem;
+    }
+  }
+  .personal.list-md{
+    .item-md:last-child{
+      border-bottom: 1px solid #dedede;
+    }
+  }
+}
